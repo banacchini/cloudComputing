@@ -1,6 +1,6 @@
 cd C:\Users\Dominik\PycharmProjects\CloudComputingLab
 
-python -m lab1.domain.events.consumer
+python -m lab1.publishers.publisher_type_1
 
 cd C:\Users\Dominik\PycharmProjects\CloudComputingLab
 
