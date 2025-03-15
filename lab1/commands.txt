@@ -1,0 +1,7 @@
+cd C:\Users\Dominik\PycharmProjects\CloudComputingLab
+
+python -m lab1.domain.events.consumer
+
+cd C:\Users\Dominik\PycharmProjects\CloudComputingLab
+
+python -m lab1.domain.events.publisher
