@@ -1,4 +1,3 @@
-import pika
 from lab1.app.connection import create_connection
 
 

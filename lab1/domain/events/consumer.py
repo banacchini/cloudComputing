@@ -1,4 +1,3 @@
-import pika
 from lab1.app.connection import create_connection
 
 
@@ -15,7 +14,12 @@ def consume_events():
                           auto_ack=True)
 
     print(' [*] Waiting for messages. To exit press CTRL+C')
-    channel.start_consuming()
+    try:
+        channel.start_consuming()
+    except KeyboardInterrupt:
+        print(' [*] Exiting...')
+    finally:
+        connection.close()
 
 
 if __name__ == "__main__":
