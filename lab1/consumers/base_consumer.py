@@ -15,7 +15,7 @@ class BaseConsumer:
     def callback(self, ch, method, properties, body):
         event_data = json.loads(body)  # Decode the JSON string back into a Python dictionary
         self.process_event(event_data)
-        logger.info(f" [x] Processed '{event_data}'")
+        # logger.info(f" [x] Processed '{event_data}'")
 
         # Simulate processing time
         time.sleep(self.processing_interval)
