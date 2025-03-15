@@ -1,32 +1,14 @@
-import json
-from lab1.app.connection import create_connection
-from lab1.domain.events.event_type_2 import Type2Event
+from lab1.consumers.base_consumer import BaseConsumer
 from lab1.utils.logger import logger
 
 
-def callback(ch, method, properties, body):
-    event_data = json.loads(body)  # Decode the JSON string back into a Python dictionary
-    event_instance = Type2Event()
-    event_instance.process()
-    logger.info(f" [x] Processed '{event_data}'")
+class ConsumerType2(BaseConsumer):
+    def __init__(self):
+        super().__init__(queue_name='Type2Event', processing_interval=7)
 
-
-def consume_events():
-    connection, channel = create_connection()
-    channel.queue_declare(queue='Type2Event')
-
-    channel.basic_consume(queue='Type2Event',
-                          on_message_callback=callback,
-                          auto_ack=True)
-
-    logger.info(' [*] Waiting for messages. To exit press CTRL+C')
-    try:
-        channel.start_consuming()
-    except KeyboardInterrupt:
-        logger.info(' [*] Exiting...')
-    finally:
-        connection.close()
-
-
+    def process_event(self, event_data):
+        # Custom processing logic for Type2Event
+        logger.info(f" [x] Processed Type2Event: {event_data}")
 if __name__ == "__main__":
-    consume_events()
+    consumer = ConsumerType2()
+    consumer.start_consuming()

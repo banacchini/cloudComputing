@@ -1,22 +1,25 @@
-import json
+import threading
 import time
-from lab1.app.connection import create_connection
+
+from lab1.publishers.base_publisher import BasePublisher
 from lab1.utils.logger import logger
 
-TIME_TO_SLEEP = 5
 
-def publish_event():
-    connection, channel = create_connection()
-    channel.queue_declare(queue='Type1Event')
+class PublisherType1(BasePublisher):
+    def __init__(self):
+        super().__init__(queue_name='Type1Event', interval=5)
 
-    while True:
-        event = {"type": "Type1Event", "message": "Message from Type1Event"}
-        channel.basic_publish(exchange='',
-                              routing_key='Type1Event',
-                              body=json.dumps(event))  # Encode the event as a JSON string
-        logger.info(f" [x] Sent '{event}'")
-        time.sleep(TIME_TO_SLEEP)  # Publishing at regular intervals
+    def start(self):
+        threading.Thread(target=self.publish_event, args=('Type1Event', 'Message from Type1Event')).start()
 
 
 if __name__ == "__main__":
-    publish_event()
+    publisher = PublisherType1()
+    publisher.start()
+
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        publisher.stop()
+        logger.info(' [*] PublisherType1 stopped.')

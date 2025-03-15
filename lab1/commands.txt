@@ -1,7 +1,11 @@
 cd C:\Users\Dominik\PycharmProjects\CloudComputingLab
 
 python -m lab1.publishers.publisher_type_1
+python -m lab1.publishers.publisher_type_2
+python -m lab1.publishers.publisher_type_3
 
-cd C:\Users\Dominik\PycharmProjects\CloudComputingLab
 
-python -m lab1.domain.events.publisher
+python -m lab1.consumers.consumer_type_1
+python -m lab1.consumers.consumer_type_2
+python -m lab1.consumers.consumer_type_3
+python -m lab1.consumers.consumer_type_4
