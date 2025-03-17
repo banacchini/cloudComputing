@@ -1,0 +1,4 @@
+2025-03-15 19:44:47,270 - cloudComputingLogger - INFO -  [*] Waiting for messages in Type1Event. To exit press CTRL+C
+2025-03-15 19:44:47,270 - cloudComputingLogger - INFO -  [x] Processed Type1Event: {'type': 'Type1Event', 'message': 'Message from Type1Event'}
+2025-03-15 19:44:52,271 - cloudComputingLogger - INFO -  [x] Processed Type1Event: {'type': 'Type1Event', 'message': 'Message from Type1Event'}
+2025-03-15 19:44:55,876 - cloudComputingLogger - INFO -  [*] Exiting...

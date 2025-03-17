@@ -1,0 +1,14 @@
+cd C:\Users\Dominik\PycharmProjects\CloudComputingLab
+
+python -m lab1_repair.publishers_project.publisher1
+python -m lab1_repair.publishers_project.publisher2
+python -m lab1_repair.publishers_project.publisher3
+python -m lab1_repair.publishers_project.publisher4
+python -m lab1_repair.publishers_project.publisher5
+
+
+python -m lab1_repair.consumers_project.consumer1
+python -m lab1_repair.consumers_project.consumer2
+python -m lab1_repair.consumers_project.consumer3
+python -m lab1_repair.consumers_project.consumer4
+python -m lab1_repair.consumers_project.consumer5
